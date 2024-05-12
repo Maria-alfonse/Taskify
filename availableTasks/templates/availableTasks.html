@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Taskify - Home</title>
+    <link rel="stylesheet" href="{%static 'css/availableTasks.css'%}">
+</head>
+
+<body>
+    <div class="nav">
+        <img src="{%static 'images/result1.png'%}" class="logo">
+        <div class="buttons">
+            <ul>
+                <li><a class="nav-link" href="TeacherHome.html">Home</a></li>
+
+                <li><a class="nav-link" href="completed.html">Completed Tasks</a></li>
+                <li><a class="nav-link" href="profileSettings.html">Profile Settings</a></li>
+                <li><a class="log-link" href="..\Home page\school.html">Log Out</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <header>
+        <h2 style="text-align: center;color:#0a387d"> Welcome back, <span id="user"></span>.</h2>
+    </header>
+    <div class="table">
+        <h3 class="thead"> My available Tasks</h3>
+        <nav>
+            <a href="#" class="links" onclick="high()">Hight Priority</a>
+            <a href="#" class="links" onclick="medium()">Medium Priority</a>
+            <a href="#" class="links" onclick="low()">Low Priority</a>
+        </nav>
+        <hr>
+        <div class="tasks">
+            <div id="high" class="h">
+
+                <a href="finaltask.html"><span id = "id"></span></a>
+                <hr>
+
+            </div>
+
+            <div id="medium" class="m">
+
+                <a href="finaltask.html"><span id = "id1"></span></a>
+                <hr>
+            </div>
+
+            <div id="low" class="l">
+
+                <a href="finaltask.html"><span id = "id2"></span></a>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <script src="{%static 'js/availableTasks.js'}">
+    </script>
+</body>
+
+</html>

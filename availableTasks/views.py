@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.template import loader
 
 def availableTasks(request):
-    return HttpResponse("available tasks")
+    template=loader.get_template('availableTasks.html')
+    return HttpResponse(template.render())
