@@ -17,14 +17,14 @@ function low() {
     y.style.left = "-900px";
     z.style.left = "15px"
 }
-document.getElementById("user").innerHTML=localStorage.getItem("username");
-var priority = localStorage.getItem("option")
-if(priority === "Low"){
-    document.getElementById("id2").innerHTML=localStorage.getItem("TtitleVal")
-}
-if(priority === "High"){
-    document.getElementById("id").innerHTML=localStorage.getItem("TtitleVal")
-}
-if(priority === "Medium"){
-    document.getElementById("id1").innerHTML=localStorage.getItem("TtitleVal")
-}
+// document.getElementById("user").innerHTML=localStorage.getItem("username");
+// var priority = localStorage.getItem("option")
+// if(priority === "Low"){
+//     document.getElementById("id2").innerHTML=localStorage.getItem("TtitleVal")
+// }
+// if(priority === "High"){
+//     document.getElementById("id").innerHTML=localStorage.getItem("TtitleVal")
+// }
+// if(priority === "Medium"){
+//     document.getElementById("id1").innerHTML=localStorage.getItem("TtitleVal")
+// }

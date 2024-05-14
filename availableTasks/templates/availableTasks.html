@@ -1,20 +1,19 @@
-{% load static %}
+{%load static%}
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="UTF-8">
     <title>Taskify - Home</title>
-    <link rel="stylesheet" href="{%static 'css/availableTasks.css'%}">
+    <link rel="stylesheet" href="{% static 'css/availableTasks.css' %}">
 </head>
 
 <body>
     <div class="nav">
-        <img src="{%static 'images/result1.png'%}" class="logo">
+        <img src="{% static 'images/result1.png' %}" class="logo">
         <div class="buttons">
             <ul>
                 <li><a class="nav-link" href="TeacherHome.html">Home</a></li>
-
                 <li><a class="nav-link" href="completed.html">Completed Tasks</a></li>
                 <li><a class="nav-link" href="profileSettings.html">Profile Settings</a></li>
                 <li><a class="log-link" href="..\Home page\school.html">Log Out</a></li>
@@ -34,28 +33,12 @@
         </nav>
         <hr>
         <div class="tasks">
-            <div id="high" class="h">
-
-                <a href="finaltask.html"><span id = "id"></span></a>
-                <hr>
-
-            </div>
-
-            <div id="medium" class="m">
-
-                <a href="finaltask.html"><span id = "id1"></span></a>
-                <hr>
-            </div>
-
-            <div id="low" class="l">
-
-                <a href="finaltask.html"><span id = "id2"></span></a>
-                <hr>
-            </div>
+            {% for task in task %}
+            <p><a href="{% url 'task_detail' %}">{{ task.title }}</a></p>
+            {% endfor %}
         </div>
     </div>
-    <script src="{%static 'js/availableTasks.js'}">
-    </script>
+    <script src="{% static 'js/availableTasks.js' %}"></script>
 </body>
 
 </html>
