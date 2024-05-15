@@ -21,5 +21,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('availableTasks.urls')),
     path('completed/', include('completed.urls')),
-    path('completed/taskdetails/', include('completed.urls')),
 ]

@@ -7,7 +7,7 @@ def mainpage(request):
     return render(request, 'mainpage.html', x)
 
 def ctask(request):
-   return render(request, 'mainpage.html')
+   return render(request, 'ctask.html')
 
 
 

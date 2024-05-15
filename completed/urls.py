@@ -3,7 +3,8 @@ from . import views
 
 urlpatterns = [
     path('', views.mainpage, name = 'completed'),
-    path('completed/taskdetails/', views.ctask, name = 'completed_task'),
+    path('taskdetails/', views.ctask, name = 'completed_task'),
+      
 
 ]
 
