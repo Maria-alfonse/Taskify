@@ -35,12 +35,13 @@
       {% if tasks %}
       <ol style="list-style-type: circle" id="TasksList">
         {% for task in tasks %}
-        <li><a href="{% url 'task_detail' task.id %}">{{ task.title }}</a></li>
+        <li><a href="{% url 'ctask' task.id %}">{{ task.title }}</a></li>
         {% endfor %}
       </ol>
       {% else %}
       <p style="padding: 30px; color: #052657de">No Tasks Marked as Completed.</p>
       {% endif %}
+
     </div>
 
     <img

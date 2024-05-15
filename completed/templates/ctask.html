@@ -1,0 +1,41 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Details</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'css/task_detail.css'%}">
+</head>
+
+<body>
+    <div class="nav">
+        <img src="{%static 'images/result1.png'%}" class="logo">
+        <div class="buttons">
+            <ul>
+                <li><a class="nav-link" href="TeacherHome.html">Home</a></li>
+                <li><a class="nav-link" href="completed.html">Completed Tasks</a></li>
+                <li><a class="nav-link" href="profileSettings.html">Profile Settings</a></li>
+                <li><a class="log-link" href="..\Home page\school.html">Log Out</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <h2><span id="res"></span>{{task.title}} Details</h2>
+        <div>
+            <p><strong>Title:</strong> {{task.title}}</p>
+            <p><strong>Priority:</strong> {{task.priority}}</p>
+            <p><strong>Description:</strong>{{task.description}}</p>
+            <p><strong>Created By:</strong></p>
+            <p><strong>Status:</strong>{% if task.status %}Done{% else %}Not Done{% endif %}</p>
+        </div>
+        <div id="control">
+            <button id="markAsDoneBtn">Mark as Not Done</button>
+            <button id="cancelBtn">Cancel</button>
+        </div>
+    </div>
+    <script src="{%static 'js/task_detail.js'%}" defer></script>
+</body>
+
+</html>
