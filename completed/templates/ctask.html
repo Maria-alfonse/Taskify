@@ -19,7 +19,7 @@
         <ul>
           <li><a class="nav-link" href="/">Home</a></li>
           <li>
-            <a class="nav-link" href="{& url 'completed' &}">Completed Tasks</a>
+            <a class="nav-link" href="/completed/">Completed Tasks</a>
           </li>
           <li>
             <a class="nav-link" href="profileSettings.html">Profile Settings</a>
@@ -31,12 +31,11 @@
       </div>
     </div>
     <div class="container">
-      <h2><span id="res"></span>{{task.title}} Details</h2>
+      <h2><span id="res"></span>{{task.title}}</h2>
       <div>
-        <p><strong>Title:</strong> {{task.title}}</p>
-        <p><strong>Priority:</strong> {{task.priority}}</p>
+        <p><strong>Priority:</strong>{{task.priority}}</p>
         <p><strong>Description:</strong>{{task.description}}</p>
-        <p><strong>Created By:</strong></p>
+        <p><strong>Created By:</strong>{{task.createdby}}</p>
         <p>
           <strong>Status:</strong>Done
         </p>

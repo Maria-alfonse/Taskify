@@ -6,4 +6,5 @@ class Task(models.Model):
     priority=models.CharField(max_length=20)
     description=models.TextField()
     status=models.BooleanField(default=False)
+    createdby=models.CharField(max_length=100, default='test')
 # Create your models here.
