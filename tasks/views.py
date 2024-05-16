@@ -6,8 +6,7 @@ from django.template import loader
 
 def showTask(request):
     task =Task.objects.all()
-    disabled_items = task.filter(disabled=True)
-    return render(request, 'AdminHome/AdminHome.html',{'task':task, 'disabled_items': disabled_items})
+    return render(request, 'AdminHome/AdminHome.html',{'task':task})
     
 def task_detail(request,taskid):
     return render(request, 'task.html', {'Task': get_object_or_404(Task,id=taskid )})
