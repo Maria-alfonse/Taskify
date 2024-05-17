@@ -34,7 +34,7 @@
         <hr>
         <div class="tasks">
             {% for task in task %}
-            <p><a href="{% url 'task_detail' %}">{{ task.title }}</a></p>
+            <p><a href="{% url 'available_task_detail' task.id %}">{{ task.title }}</a></p>
             {% endfor %}
         </div>
     </div>

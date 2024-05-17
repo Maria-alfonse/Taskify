@@ -16,7 +16,6 @@
             <ul>
                 <li><a class="nav-link" href="/availableTasks/">Home</a></li>
                 <li><a class="nav-link" href="/completed/">Completed Tasks</a></li>
-                <li><a class="nav-link" href="profileSettings.html">Profile Settings</a></li>
                 <li><a class="log-link" href="..\Home page\school.html">Log Out</a></li>
             </ul>
         </div>
@@ -24,12 +23,12 @@
     <div class="container">
         <h2><span id="res"></span>{{task.title}} Details</h2>
         <div>
-            <p><strong>ID:</strong> </p>
+            <p><strong>ID:</strong>{{task.id}} </p>
             <p><strong>Title:</strong> {{task.title}}</p>
-            <p><strong>Teacher:</strong> </p>
-            <p><strong>Priority:</strong> {{task.priority}}</p>
-            <p><strong>Description:</strong>{{task.description}}</p>
-            <p><strong>Created By:</strong></p>
+            <p><strong>Teacher:</strong>{{task.teacher}} </p>
+            <p><strong>Priority:</strong> {{task.choose}}</p>
+            <p><strong>Description:</strong>{{task.Description}}</p>
+            <p><strong>Created By:</strong>{{task.admin}}</p>
             <p><strong>Status:</strong>{% if task.status %}Done{% else %}Not Done{% endif %}</p>
         </div>
         <div id="control">
