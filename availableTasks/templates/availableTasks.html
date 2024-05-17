@@ -1,4 +1,4 @@
-{%load static%}
+{% load static %}
 <!DOCTYPE html>
 <html>
 
@@ -15,7 +15,6 @@
             <ul>
                 <li><a class="nav-link" href="/availableTasks/">Home</a></li>
                 <li><a class="nav-link" href="/completed/">Completed Tasks</a></li>
-                <li><a class="nav-link" href="profileSettings.html">Profile Settings</a></li>
                 <li><a class="log-link" href="..\Home page\school.html">Log Out</a></li>
             </ul>
         </div>
@@ -27,15 +26,37 @@
     <div class="table">
         <h3 class="thead"> My available Tasks</h3>
         <nav>
-            <a href="#" class="links" onclick="high()">Hight Priority</a>
+            <a href="#" class="links" onclick="high()">High Priority</a>
             <a href="#" class="links" onclick="medium()">Medium Priority</a>
             <a href="#" class="links" onclick="low()">Low Priority</a>
         </nav>
         <hr>
         <div class="tasks">
-            {% for task in task %}
-            <p><a href="{% url 'available_task_detail' task.id %}">{{ task.title }}</a></p>
+            <div id="high" class="high">
+                {% for task in task %}
+                {% if task.choose == 'High'%}
+                <p><a href="{% url 'available_task_detail' task.id %}">{{ task.title }}</a></p>
+                <br>
+                {% endif %}
             {% endfor %}
+            </div>
+            <div id="medium" class="medium">
+                {% for task in task %}
+                {% if task.choose == 'Medium'%}
+                <p><a href="{% url 'available_task_detail' task.id %}">{{ task.title }}</a></p>
+                <br>
+                {% endif %}
+            {% endfor %}
+            </div>
+            <div id="low" class="low">
+                {% for task in task %}
+                {% if task.choose == 'Low'%}
+                <p><a href="{% url 'available_task_detail' task.id %}">{{ task.title }}</a></p>
+                <br>
+                {% endif %}
+            {% endfor %}
+            </div>
+            
         </div>
     </div>
     <script src="{% static 'js/availableTasks.js' %}"></script>

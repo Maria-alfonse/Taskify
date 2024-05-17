@@ -150,43 +150,37 @@ a {
 
 }
 
-.h {
-    width: 100%;
-    transition: 1s;
-    position: absolute;
-
-}
-
-.m {
-    width: 100%;
-    transition: 1s;
-    position: absolute;
-
-}
-
-.l {
-    width: 100%;
-    transition: 1s;
-    position: absolute;
-}
-
 .tasks a {
     color: #000;
 
 }
 
-#medium {
-    left: 900px
+#high{
+    left:900px
 }
-
-#low {
-    left: 1200px
+#medium{
+    left:1200px
 }
-
-#high {
-    left: 15px
+#low{
+    left:15px
 }
-
-hr {
+hr{
     border-top: #ffffffab;
+}
+.high{
+    width: 100%;
+    transition: 1s;
+    position: absolute;
+
+}
+.medium{
+    width: 100%;
+    transition: 1s;
+    position: absolute;
+
+}
+.low{
+    width: 100%;
+    transition: 1s;
+    position: absolute;
 }

@@ -15,3 +15,4 @@ from tasks.models import Task
 def available_task_detail(request, task_id):  # Add task_id parameter
     task = get_object_or_404(Task, pk=task_id)  # Filter by primary key (pk)
     return render(request, 'task_detail.html', {'task': task})
+
