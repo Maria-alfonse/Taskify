@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'availableTasks',
     'completed.apps.CompletedConfig',
-    
+     'myapp.apps.MyAppConfig',
 ]
 
 MIDDLEWARE = [
