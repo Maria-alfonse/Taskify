@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'availableTasks',
     'completed.apps.CompletedConfig',
-     'myapp.apps.MyAppConfig',
+    'myapp.apps.MyAppConfig', 
 ]
 
 MIDDLEWARE = [
@@ -103,6 +103,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+AUTH_USER_MODEL = 'myapp.User'
 
 
 # Internationalization
