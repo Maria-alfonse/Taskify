@@ -17,28 +17,31 @@
       <img src="{%static 'images/result1.png'%}" class="logo" />
       <div class="buttons">
         <ul>
-            <li><a class="nav-link" href="/availableTasks/">Home</a></li>
-            <li><a class="nav-link" href="/completed/">Completed Tasks</a></li>
-            <li><a class="nav-link" href="profileSettings.html">Profile Settings</a></li>
-            <li><a class="log-link" href="..\Home page\school.html">Log Out</a></li>
+          <li><a class="nav-link" href="/availableTasks/">Home</a></li>
+          <li><a class="nav-link" href="/completed/">Completed Tasks</a></li>
+          <li>
+            <a class="log-link" href="..\Home page\school.html">Log Out</a>
+          </li>
         </ul>
       </div>
     </div>
     <div class="container">
-      <h2><span id="res"></span>{{task.title}}</h2>
+      <h2>{{task.title}} Details</h2>
       <div>
-        <p><strong>Priority:</strong>{{task.priority}}</p>
-        <p><strong>Description:</strong>{{task.description}}</p>
-        <p><strong>Created By:</strong>{{task.createdby}}</p>
-        <p>
-          <strong>Status:</strong>Done
-        </p>
+        <p><strong>ID:</strong>{{task.id}}</p>
+        <p><strong>Title:</strong> {{task.title}}</p>
+        <p><strong>Priority:</strong> {{task.choose}}</p>
+        <p><strong>Description:</strong>{{task.Description}}</p>
+        <p><strong>Created By:</strong>{{task.admin}}</p>
+        <p><strong>Status:</strong>Done</p>
       </div>
       <div id="control">
-        <button id="markAsDoneBtn">Mark as Not Done</button>
+        <button id="markAsNotDoneBtn" data-task-id="{{task.id}}">
+          Mark As Not Done
+        </button>
         <button id="cancelBtn">Cancel</button>
       </div>
     </div>
-    <script src="{%static 'js/task_detail.js'%}" defer></script>
+    <script src="{%static 'js/ctask_detail.js'%}" defer></script>
   </body>
 </html>
