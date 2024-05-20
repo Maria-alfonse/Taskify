@@ -15,6 +15,7 @@ document.getElementById('markAsDoneBtn').addEventListener('click', function() {
     .then(data => {
         if (data.status === 'success') {
             alert('Task marked as done');
+            location.reload();
         } else {
             alert('Failed to update task status');
         }
