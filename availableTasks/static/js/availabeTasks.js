@@ -1,4 +1,3 @@
-location.reload();
 var x = document.getElementById("upcom");
 var y = document.getElementById("ovrdu");
 var z = document.getElementById("cmplt");
