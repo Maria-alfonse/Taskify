@@ -10,6 +10,5 @@ urlpatterns = [
     path('completed/', include('completed.urls')),
     path('addTask/', include('addTask.urls')),
     path('Home/',include('tasks.urls')),
-       
-   path('', include('myapp.urls')),
+    path('', include('myapp.urls')),
 ]

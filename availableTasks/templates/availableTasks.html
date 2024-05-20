@@ -1,6 +1,6 @@
 {%block content%}
 {%load static%}
-<link rel="stylesheet" href="{%static 'css/AdminHome.css' %}"></link>
+<link rel="stylesheet" href="{%static 'css/AdminHome.css' %}">
 <!doctype html>
 <html>
 
@@ -39,7 +39,7 @@
         <div class="tasks">
         <div id="upcom" class="st">
             {% for task in task %}
-            {% if task.choose == 'High'%}
+            {% if task.choose == 'High' and task.completed == False %}
             <p><a href="{% url 'available_task_detail' task.id %}">{{ task.title }}</a></p>
             <br>
             {% endif %}
@@ -51,7 +51,7 @@
          
          <div id ="ovrdu"class="nd">
             {% for task in task %}
-                {% if task.choose == 'Medium'%}
+                {% if task.choose == 'Medium' and task.completed == False %}
                 <p><a href="{% url 'available_task_detail' task.id %}">{{ task.title }}</a></p>
                 <br>
                 {% endif %}
@@ -60,7 +60,7 @@
          
          <div id ="cmplt"class="rd">
             {% for task in task %}
-            {% if task.choose == 'Low'%}
+            {% if task.choose == 'Low' and task.completed == False %}
             <p><a href="{% url 'available_task_detail' task.id %}">{{ task.title }}</a></p>
             <br>
             {% endif %}

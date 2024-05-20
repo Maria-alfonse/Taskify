@@ -12,10 +12,11 @@
       <img src="{% static 'images\result1.png' %}" class="logo" />
       <div class="buttons">
         <ul>
-            <li><a class="nav-link" href="/availableTasks/">Home</a></li>
-            <li><a class="nav-link" href="/completed/">Completed Tasks</a></li>
-            <li><a class="nav-link" href="profileSettings.html">Profile Settings</a></li>
-            <li><a class="log-link" href="..\Home page\school.html">Log Out</a></li>
+          <li><a class="nav-link" href="/availableTasks/">Home</a></li>
+          <li><a class="nav-link" href="/completed/">Completed Tasks</a></li>
+          <li>
+            <a class="log-link" href="..\Home page\school.html">Log Out</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -30,8 +31,15 @@
 
       {% if tasks %}
       <ol style="list-style-type: circle" id="TasksList">
-        {% for task in tasks %}
-        <li><a href="{% url 'ctask' task.id %}">{{ task.title }}</a></li>
+        {% for task in tasks %} {% if task.completed %}
+        <li>
+          <a
+            href="{% url 'comptask' task.id %}"
+            style="text-decoration: none; color: #000"
+            >{{ task.title }}</a
+          >
+        </li>
+        {% endif %} 
         {% endfor %}
       </ol>
       {% else %}
@@ -46,7 +54,5 @@
       alt="Sticker"
       class="sticker"
     />
-
-    <script defer src="{% static 'js/completed.js' %}"></script>
   </body>
 </html>
