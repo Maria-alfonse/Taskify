@@ -7,12 +7,7 @@ from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
 from tasks.models import Task
 from myapp.models import User
-<<<<<<< HEAD
-from django.contrib.auth.decorators import login_required
 
-
-=======
->>>>>>> 671cc6f86fd36c9387d5586e5e8075a36ddc8600
 
 def availableTasks(request):
     tasks = Task.objects.filter(completed=False)

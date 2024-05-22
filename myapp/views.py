@@ -1,11 +1,10 @@
+
 from django.shortcuts import render, redirect
 from .forms import SignUpForm, LoginForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from .models import User
-
-
 def home_view(request):
     return render(request, 'home.html')
 
@@ -26,7 +25,7 @@ def auth(request):
                 if user.is_admin:
                     return redirect('admin_home')
                 elif not user.is_admin:
-                    return redirect('teacherhome', {"name": user.username})
+                    return redirect('teacherhome')
                 else:
                     return HttpResponse('Invalid credentials')
             else:
@@ -40,12 +39,11 @@ def auth(request):
                     if user.is_admin:
                         return redirect('admin_home')
                     else:
-                        return redirect('teacherhome', {"name": user.username})
+                        return redirect('teacherhome')
                 else:
                     return HttpResponse('Invalid credentials')
             else:
                 return HttpResponse('Invalid credentials')
-        
     return render(request, 'login.html')
 
 def login(request):
@@ -86,7 +84,7 @@ def signup(request):
                 return redirect('admin_home')
             elif not user.is_admin:
                 #login(request)
-                return redirect('teacherhome', {"name": user.username})
+                return redirect('teacherhome')
             else:
                 msg = 'Invalid credentials'
         else:
@@ -100,4 +98,4 @@ def admin_home(request):
     return render(request, '../templates/AdminHome/AdminHome.html')
 
 def teacher_home(request):
-    return render(request, '../templates/availableTasks.html')
+    return render(request, 'teacher_home.html')
