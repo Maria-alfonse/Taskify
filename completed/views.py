@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
 from tasks.models import Task
-
+from myapp.models import User
 # View to display the main page with completed tasks
 def mainpage(request):
     tasks = Task.objects.filter(completed=True)

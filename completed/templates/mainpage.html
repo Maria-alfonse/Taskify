@@ -31,13 +31,12 @@
 
       {% if tasks %}
       <ol style="list-style-type: circle" id="TasksList">
-        {% for task in tasks %} {% if task.completed %}
+        {% for task in tasks %} {% if task.completed and name == task.teacher %}
         <li>
           <a
             href="{% url 'task' task.id %}"
             style="text-decoration: none; color: #000"
-            >{{ task.title }}</a
-          >
+            >{{ task.title }}</a>
         </li>
         {% endif %} 
         {% endfor %}
