@@ -34,7 +34,7 @@
         {% for task in tasks %} {% if task.completed %}
         <li>
           <a
-            href="{% url 'comptask' task.id %}"
+            href="{% url 'task' task.id %}"
             style="text-decoration: none; color: #000"
             >{{ task.title }}</a
           >

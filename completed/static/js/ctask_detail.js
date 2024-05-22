@@ -1,10 +1,10 @@
 // Get the markAsDoneBtn and add event listener
-document.getElementById('markAsNotDoneBtn').addEventListener('click', function() {
+/*document.getElementById('markAsDoneBtn').addEventListener('click', function() {
     // Get the task ID from the data attribute
     const taskId = this.getAttribute('data-task-id');
     
     // Make the fetch request with the correct URL
-    fetch(`/task/${taskId}/mark_as_not_done/`, {
+    fetch(`/task/${taskId}/mark_as_done/`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -14,14 +14,18 @@ document.getElementById('markAsNotDoneBtn').addEventListener('click', function()
     .then(response => response.json())
     .then(data => {
         if (data.status === 'success') {
-            alert('Task marked as Not done');
-            window.history.back();
+            alert('Task marked as not done');
+            window.location.href = 'http://127.0.0.1:8000/availableTasks/';
         } else {
             alert('Failed to update task status');
         }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred while updating the task status');
     });
-});
-
+}); 
+*/
 document.getElementById('cancelBtn').addEventListener('click', function() {
     window.history.back();
 });

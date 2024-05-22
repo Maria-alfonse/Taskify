@@ -10,21 +10,15 @@ def mainpage(request):
     return render(request, 'mainpage.html', {'tasks': tasks})
 
 # View to display the details of a specific task
-def comptask(request, task_id):
+def task(request, task_id):
     task = get_object_or_404(Task, pk=task_id)  # Filter by primary key (pk)
     return render(request, 'ctask.html', {'task': task})
 
 # View to mark a task as not done
 @require_POST
 @csrf_exempt  # Only use csrf_exempt for demonstration purposes; in production, ensure CSRF is handled properly
-def mark_as_not_done(request, task_id):
-    task = get_object_or_404(Task, id = task_id)
-    task.completed = False
+def mark_as_done(request, task_id):
+    task = get_object_or_404(Task, id=task_id)
+    task.completed = not (task.competed)
     task.save()
     return JsonResponse({'status': 'success', 'completed': task.completed})
-
-# View to handle completed task page if different from task_detail
-def ctask(request):
-    # Assuming this would list all completed tasks again or a specific logic for completed tasks
-    tasks = Task.objects.filter(completed = True)
-    return render(request, 'ctask.html', {'tasks': tasks})

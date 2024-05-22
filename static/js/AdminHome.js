@@ -17,5 +17,3 @@ var z = document.getElementById("cmplt");
             y.style.left = "-900px";
             z.style.left="15px"
         }
-        document.getElementById("id").innerHTML=localStorage.getItem("TtitleVal");
-        document.getElementById("user").innerHTML=localStorage.getItem("username");

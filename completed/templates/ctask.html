@@ -1,4 +1,5 @@
-{%load static%}
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,13 +9,12 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="{%static 'css/task_detail.css'%}"
+      href="{% static 'css/task_detail.css' %}"
     />
   </head>
-
   <body>
     <div class="nav">
-      <img src="{%static 'images/result1.png'%}" class="logo" />
+      <img src="{% static 'images/result1.png' %}" class="logo" />
       <div class="buttons">
         <ul>
           <li><a class="nav-link" href="/availableTasks/">Home</a></li>
@@ -26,22 +26,20 @@
       </div>
     </div>
     <div class="container">
-      <h2>{{task.title}} Details</h2>
+      <h2>{{ task.title }} Details</h2>
       <div>
-        <p><strong>ID:</strong>{{task.id}}</p>
-        <p><strong>Title:</strong> {{task.title}}</p>
-        <p><strong>Priority:</strong> {{task.choose}}</p>
-        <p><strong>Description:</strong>{{task.Description}}</p>
-        <p><strong>Created By:</strong>{{task.admin}}</p>
+        <p><strong>ID:</strong>{{ task.id }}</p>
+        <p><strong>Title:</strong> {{ task.title }}</p>
+        <p><strong>Priority:</strong> {{ task.choose }}</p>
+        <p><strong>Description:</strong>{{ task.Description }}</p>
+        <p><strong>Created By:</strong>{{ task.admin }}</p>
         <p><strong>Status:</strong>Done</p>
       </div>
       <div id="control">
-        <button id="markAsNotDoneBtn" data-task-id="{{task.id}}">
-          Mark As Not Done
-        </button>
-        <button id="cancelBtn">Cancel</button>
+        <button id="cancelBtn">OK</button>
       </div>
     </div>
-    <script src="{%static 'js/ctask_detail.js'%}" defer></script>
+    
+    <script src="{% static 'js/ctask_detail.js' %}" defer></script>
   </body>
 </html>
