@@ -45,6 +45,7 @@ def auth(request):
                     return HttpResponse('Invalid credentials')
             else:
                 return HttpResponse('Invalid credentials')
+        
     return render(request, 'login.html')
 
 def login(request):

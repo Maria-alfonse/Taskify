@@ -6,10 +6,15 @@ from django.http import JsonResponse
 from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
 from tasks.models import Task
+from myapp.models import User
+from django.contrib.auth.decorators import login_required
+
+
 
 def availableTasks(request):
-    task=Task.objects.filter(completed=False)
-    return render(request,'availableTasks.html',{'task':task})
+    tasks = Task.objects.filter(completed=False)
+    return render(request, 'availableTasks.html', {'tasks': tasks, 'user': request.user})
+
 
 
 def available_task_detail(request, task_id):  # Add task_id parameter
