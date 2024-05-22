@@ -1,18 +1,42 @@
 
 
 // delete
-const deleteTask = () => {
-    if (confirm("Are you sure you want to delete this task?")) {
-        window.location.href = "empty.html";
-    }
-};
+document.addEventListener('DOMContentLoaded', function() {
+    const taskItems = document.querySelectorAll('.container ul li');
 
-document.querySelector('a[href="AdminHome.html"] button').addEventListener('click', function(event) {
-    if (!deleteTask()) {
-        event.preventDefault(); 
+    function deleteTask(taskId) {
+        if (confirm("Are you sure you want to delete this task?")) {
+            fetch(`/delete_task/${taskId}/`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCsrfToken(),
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const taskElement = document.getElementById(`task-${taskId}`);
+                    taskElement.remove();
+                } else {
+                    alert('Failed to delete task.');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
     }
+
+    function getCsrfToken() {
+        return document.querySelector('[name=csrfmiddlewaretoken]').value;
+    }
+
+    taskItems.forEach(function(taskItem) {
+        taskItem.querySelector('button').addEventListener('click', function() {
+            const taskId = this.getAttribute('data-task-id');
+            deleteTask(taskId);
+        });
+    });
 });
-
 // edit
 const editTask = () => {
     window.location.href = "Edit.html";

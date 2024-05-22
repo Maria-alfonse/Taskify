@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'availableTasks',
     'completed.apps.CompletedConfig',
     'myapp.apps.MyAppConfig', 
+    'viewlist',
 ]
 
 MIDDLEWARE = [

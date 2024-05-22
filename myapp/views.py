@@ -26,7 +26,7 @@ def auth(request):
                 if user.is_admin:
                     return redirect('admin_home')
                 elif not user.is_admin:
-                    return redirect('teacherhome')
+                    return redirect('teacherhome', {"name": user.username})
                 else:
                     return HttpResponse('Invalid credentials')
             else:
@@ -40,7 +40,7 @@ def auth(request):
                     if user.is_admin:
                         return redirect('admin_home')
                     else:
-                        return redirect('teacherhome')
+                        return redirect('teacherhome', {"name": user.username})
                 else:
                     return HttpResponse('Invalid credentials')
             else:
@@ -86,7 +86,7 @@ def signup(request):
                 return redirect('admin_home')
             elif not user.is_admin:
                 #login(request)
-                return redirect('teacherhome')
+                return redirect('teacherhome', {"name": user.username})
             else:
                 msg = 'Invalid credentials'
         else:

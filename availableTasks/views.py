@@ -7,9 +7,12 @@ from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
 from tasks.models import Task
 from myapp.models import User
+<<<<<<< HEAD
 from django.contrib.auth.decorators import login_required
 
 
+=======
+>>>>>>> 671cc6f86fd36c9387d5586e5e8075a36ddc8600
 
 def availableTasks(request):
     tasks = Task.objects.filter(completed=False)
@@ -35,4 +38,3 @@ def task_detail(request):
     # Assuming this would list all completed tasks again or a specific logic for completed tasks
     tasks = Task.objects.filter(completed=True)
     return render(request, 'task_detail.html', {'tasks': tasks})
-

@@ -1,4 +1,3 @@
-location.reload();
 var x = document.getElementById("upcom");
 var y = document.getElementById("ovrdu");
 var z = document.getElementById("cmplt");
@@ -17,4 +16,9 @@ var z = document.getElementById("cmplt");
             x.style.left = "-2090px";
             y.style.left = "-900px";
             z.style.left="15px"
+<<<<<<< HEAD
         }
+=======
+        }
+       
+>>>>>>> 671cc6f86fd36c9387d5586e5e8075a36ddc8600
