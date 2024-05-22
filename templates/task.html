@@ -35,7 +35,9 @@
         </div>
             <div>
                 <a href="Edit.html"><button>Edit</button></a>
-                <a href="AdminHome.html"><button>Delete</button>
+                <form method="post" action="{% url 'delete_task' Task.id %}" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit">Delete</button>
             </div>
         </div>
     </div>

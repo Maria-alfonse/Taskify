@@ -6,7 +6,6 @@ from django.http import HttpResponse
 from .models import User
 
 
-
 def home_view(request):
     return render(request, 'home.html')
 
@@ -58,7 +57,7 @@ def login(request):
                 if user.is_admin:
                     return redirect('admin_home')
                 else:
-                    return redirect('teacherhome', {'name': user.username})
+                    return redirect('teacherhome')
             else:
                 return HttpResponse('Invalid credentials')
     return render(request, 'login.html')

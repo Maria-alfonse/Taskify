@@ -11,4 +11,5 @@ urlpatterns = [
     path('addTask/', include('addTask.urls')),
     path('Home/',include('tasks.urls')),
     path('', include('myapp.urls')),
+     path('viewlist/',include('viewlist.urls')),
 ]
