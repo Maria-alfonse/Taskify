@@ -4,7 +4,6 @@ from django.utils.translation import gettext_lazy as _
 
 
 class User(AbstractUser):
-    is_teacher = models.BooleanField('is_teacher', default=False)
     is_admin = models.BooleanField('is_admin', default=False)
     username = models.CharField(max_length=50, unique=True)
     email = models.EmailField(_('email address'), unique=True)

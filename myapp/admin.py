@@ -8,8 +8,8 @@ from django.urls import path
 
 
 class UserAdmin(admin.ModelAdmin):
-    list_display = ('username', 'email', 'is_teacher', 'is_admin')
-    list_filter = ('is_teacher', 'is_admin')
+    list_display = ('username', 'email', 'is_admin')
+    list_filter = ('is_admin',)
     search_fields = ('username', 'email')
 
 admin.site.register(User, UserAdmin)

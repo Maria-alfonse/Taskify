@@ -1,28 +1,66 @@
-
 from django.shortcuts import render, redirect
 from .forms import SignUpForm, LoginForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from .models import User
+
+
 def home_view(request):
     return render(request, 'home.html')
 
+def auth(request):
+    if request.method == 'POST':
+        if request.POST.get('username'):
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+            email = request.POST.get('email')
+            choose = request.POST.get('choose')
+            if choose=='admin':
+                is_admin=True
+            else:
+                is_admin=False
+            user = User(username=username, password=password,email=email,is_admin=is_admin)
+            user.save()
+            if user is not None:
+                if user.is_admin:
+                    return redirect('admin_home')
+                elif not user.is_admin:
+                    return redirect('teacherhome')
+                else:
+                    return HttpResponse('Invalid credentials')
+            else:
+                return HttpResponse('Invalid credentials')
+        else:
+            email = request.POST.get('email')
+            password = request.POST.get('password')
+            user = User.objects.filter(email=email).first()
+            if user:
+                if user.password==password:
+                    if user.is_admin:
+                        return redirect('admin_home')
+                    else:
+                        return redirect('teacherhome')
+                else:
+                    return HttpResponse('Invalid credentials')
+            else:
+                return HttpResponse('Invalid credentials')
+    return render(request, 'login.html')
+
 def login(request):
-    msg = None
     if request.method == 'POST':
         password=request.POST['password']
         email=request.POST['email']
         user=User.objects.filter(email=email).first()
-        if user :
+        if user:
             if user.password==password:
                 if user.is_admin:
                     return redirect('admin_home')
                 else:
-                    return redirect('teacher_home')
-    else:
-        form = SignUpForm()
-        return render(request, 'login.html', {'form': form, 'msg': msg})
+                    return redirect('teacherhome')
+            else:
+                return HttpResponse('Invalid credentials')
+    return render(request, 'login.html')
 
 def signup(request):
     form = SignUpForm(request.POST.get('username'))
@@ -47,7 +85,7 @@ def signup(request):
                 return redirect('admin_home')
             elif not user.is_admin:
                 #login(request)
-                return redirect('teacher_home')
+                return redirect('teacherhome')
             else:
                 msg = 'Invalid credentials'
         else:
@@ -56,15 +94,9 @@ def signup(request):
         msg = 'Error validating form'
     return render(request, 'login.html', {'form': form, 'msg': msg}) 
 
-@login_required
 def admin_home(request):
-    return render(request, 'admin_home.html')
+    # return render(request, 'admin_home.html')
+    return render(request, '../templates/AdminHome/AdminHome.html')
 
-@login_required
 def teacher_home(request):
-    return render(request, 'teacher_home.html')
-  
-
-
-
-
+    return render(request, '../templates/availableTasks.html')

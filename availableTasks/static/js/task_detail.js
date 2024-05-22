@@ -15,15 +15,12 @@ document.getElementById('markAsDoneBtn').addEventListener('click', function() {
     .then(data => {
         if (data.status === 'success') {
             alert('Task marked as done');
-            window.location.href = 'http://127.0.0.1:8000/completed/';
+            location.reload();
         } else {
             alert('Failed to update task status');
         }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('An error occurred while updating the task status');
     });
+    window.history.back(); 
 });
 
 document.getElementById('cancelBtn').addEventListener('click', function() {
