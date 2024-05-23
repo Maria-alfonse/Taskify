@@ -1,4 +1,3 @@
-
 from django.shortcuts import render, redirect
 from .forms import SignUpForm, LoginForm
 from django.contrib.auth import authenticate, login
@@ -98,4 +97,4 @@ def admin_home(request):
     return render(request, '../templates/AdminHome/AdminHome.html')
 
 def teacher_home(request):
-    return render(request, 'teacher_home.html')
+    return render(request, '../templates/availableTasks.html')
