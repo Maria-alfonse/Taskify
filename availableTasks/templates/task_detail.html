@@ -10,8 +10,28 @@
       type="text/css"
       href="{%static 'css/task_detail.css'%}"
     />
+  
   </head>
-
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Ajax request to mark task as done
+            $('.mark-as-done').click(function() {
+                var taskId = $(this).closest('.task').data('task-id');
+                $.ajax({
+                    url: '/mark_as_done/' + taskId + '/',
+                    type: 'POST',
+                    data: {'csrfmiddlewaretoken': '{{ csrf_token }}'},
+                    success: function(data) {
+                        if (data.status === 'success') {
+                            // Task marked as done, update UI accordingly
+                            $(this).closest('.task').remove();
+                        }
+                    }
+                });
+            });
+        });
+    </script>
   <body>
     <div class="nav">
       <img src="{%static 'images/result1.png'%}" class="logo" />
@@ -20,7 +40,7 @@
           <li><a class="nav-link" href="/availableTasks/">Home</a></li>
           <li><a class="nav-link" href="/completed/">Completed Tasks</a></li>
           <li>
-            <a class="log-link" href="..\Home page\school.html">Log Out</a>
+            <a class="log-link" href="/">Log Out</a>
           </li>
         </ul>
       </div>
@@ -31,6 +51,7 @@
         <p><strong>ID:</strong>{{task.id}}</p>
         <p><strong>Title:</strong> {{task.title}}</p>
         <p><strong>Priority:</strong> {{task.choose}}</p>
+        <p><strong>Teacher:</strong> {{task.teacher}}</p>
         <p><strong>Description:</strong>{{task.Description}}</p>
         <p><strong>Created By:</strong>{{task.admin}}</p>
         <p><strong>Status:</strong>Not Done</p>

@@ -1,15 +1,12 @@
-{%block content%}
-{%load static%}
-<link rel="stylesheet" href="{%static 'css/AdminHome.css' %}">
+{% block content %}
+{% load static %}
 <!doctype html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <title>Taskify - Home</title>
+    <link rel="stylesheet" href="{% static 'css/availableTasks.css' %}">
 </head>
-
-
 <body>
     <div class="nav">
         <img src="{% static 'images/result1.png' %}" class="logo">
@@ -17,62 +14,50 @@
             <ul>
                 <li><a class="nav-link" href="/availableTasks/">Home</a></li>
                 <li><a class="nav-link" href="/completed/">Completed Tasks</a></li>
-                <li><a class="log-link" href="..\Home page\school.html">Log Out</a></li>
+                <li><a class="log-link" href="/">Log Out</a></li>
             </ul>
         </div>
     </div>
     <header>
-        <h2 style="text-align: center;color:#0a387d"> Welcome back,<span id="user">{{ user.username }}</span>.</h2>
+        <h2 style="text-align: center;color:#0a387d"> Welcome back, <span id="user">{{ user.username }}</span>.</h2>
     </header>
     <div class="table">
         <h3 class="thead"> My available Tasks</h3>
-
-<nav>
-
-        
-    <a href="#"class="links" onclick="upcoming()">High Priority</a>
-    <a href = "#"class="links" onclick="overdue()">Medium Priority</a>
-    <a href="#"class="links" onclick="completed()">Low Priority</a>
-                
+        <nav>
+            <a href="#" class="links" onclick="upcoming()">High Priority</a>
+            <a href="#" class="links" onclick="overdue()">Medium Priority</a>
+            <a href="#" class="links" onclick="completed()">Low Priority</a>
         </nav>
         <hr>
         <div class="tasks">
-        <div id="upcom" class="st">
-            {% for task in task %}
-            {% if task.choose == 'High' and task.completed == False and name == task.teacher %}
-            <p><a href="{% url 'available_task_detail' task.id %}">{{ task.title }}</a></p>
-            <br>
-            {% endif %}
-        {% endfor %}
-        
-            <hr>
-    
-         </div>
-         
-         <div id ="ovrdu"class="nd">
-            {% for task in task %}
-                {% if task.choose == 'Medium' and task.completed == False and name == task.teacher %}
+            <div id="upcom" class="st">
+                {% for task in tasks %}
+                {% if task.choose == 'High' %}
                 <p><a href="{% url 'available_task_detail' task.id %}">{{ task.title }}</a></p>
                 <br>
                 {% endif %}
-            {% endfor %}
-         </div>
-         
-         <div id ="cmplt"class="rd">
-            {% for task in task %}
-            {% if task.choose == 'Low' and task.completed == False and name == task.teacher %}
-            <p><a href="{% url 'available_task_detail' task.id %}">{{ task.title }}</a></p>
-            <br>
-            {% endif %}
-        {% endfor %}
-        </div>
-        
+                {% endfor %}
+                <hr>
+            </div>
+            <div id="ovrdu" class="nd">
+                {% for task in tasks %}
+                {% if task.choose == 'Medium' %}
+                <p><a href="{% url 'available_task_detail' task.id %}">{{ task.title }}</a></p>
+                <br>
+                {% endif %}
+                {% endfor %}
+            </div>
+            <div id="cmplt" class="rd">
+                {% for task in tasks %}
+                {% if task.choose == 'Low' %}
+                <p><a href="{% url 'available_task_detail' task.id %}">{{ task.title }}</a></p>
+                <br>
+                {% endif %}
+                {% endfor %}
+            </div>
         </div>
     </div>
-
-{%load static%}
-    <script src="{%static 'js/AdminHome.js'%}"></script>
+    <script src="{% static 'js/AdminHome.js' %}"></script>
 </body>
-
 </html>
-{%endblock content%}
+{% endblock content %}

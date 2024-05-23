@@ -1,5 +1,4 @@
-Global Styles
-body {
+html {
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
@@ -13,13 +12,11 @@ body {
     margin: 0;
 }
 
-/* Navigation Styles */
 .nav {
     display: flex;
     width: 100%;
     align-items: center;
     padding: 10px 20px;
-    background-color: rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 0;
     left: 0;
@@ -123,5 +120,5 @@ body {
 hr {
     border-top: 1px solid #ffffffab;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 20px;
 }

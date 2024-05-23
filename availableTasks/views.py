@@ -33,3 +33,4 @@ def task_detail(request):
     # Assuming this would list all completed tasks again or a specific logic for completed tasks
     tasks = Task.objects.filter(completed=True)
     return render(request, 'task_detail.html', {'tasks': tasks})
+
