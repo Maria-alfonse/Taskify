@@ -4,7 +4,8 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from .models import User
-
+from django.contrib.auth import logout
+from django.shortcuts import redirect
 
 def auth(request):
     if request.method == 'POST':
@@ -20,7 +21,7 @@ def auth(request):
                 if user.is_admin:
                     return redirect('showTask')
                 else:
-                    return redirect('teacherhome')
+                    return redirect('teacherhome', {'name': username})
             else:
                 return HttpResponse('Invalid credentials')
         else:
@@ -32,7 +33,7 @@ def auth(request):
                     if user.is_admin:
                         return redirect('showTask')
                     else:
-                        return redirect('teacherhome')
+                        return redirect('teacherhome', {'name': user.username})
                 else:
                     return HttpResponse('Invalid credentials')
             else:
@@ -49,7 +50,7 @@ def login(request):
                 if user.is_admin:
                     return redirect('showTask')
                 else:
-                    return redirect('teacherhome')
+                    return redirect('teacherhome', {'name': user.username})
             else:
                 return HttpResponse('Invalid credentials')
     return render(request, 'login.html')
@@ -70,7 +71,7 @@ def signup(request):
             if user.is_admin:
                 return redirect('showTask')
             else:
-                return redirect('teacherhome')
+                return redirect('teacherhome', {'name': username})
         else:
             msg = 'Invalid credentials'
     else:
@@ -83,4 +84,8 @@ def teacher_home(request, name):
     return render(request, 'availableTasks/availableTasks.html', context)
 
 def home_view(request):
-    return render(request,'home.html')
+    return render(request, 'home.html')
+
+def logout_view(request):
+    logout(request)
+    return redirect('login')  # Redirect to the login page after logout

@@ -73,20 +73,6 @@ document.forms[0].onsubmit = function(event) {
     }
   
 
-    alert('Your task has been added. You can add another one!')
-    window.localStorage.setItem("taskidVal",taskId.value);
-        localStorage.setItem('TtitleVal',Ttitle.value);
-        localStorage.setItem("teacherN",teacherN.value);
-        localStorage.setItem("des",des.value);
-        localStorage.setItem("adimnN",admin.value);
-        let optionVal = this.choose.value;
-        localStorage.setItem('option',optionVal)
-        taskId.value = "";
-    Ttitle.value = "";
-    teacherN.value = "";
-    des.value = "";
-    admin.value="";
-     
-    
+    alert('Your task has been added. You can add another one!')  
 }
 
