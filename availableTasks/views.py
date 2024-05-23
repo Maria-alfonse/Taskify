@@ -6,11 +6,12 @@ from tasks.models import Task
 from myapp.models import User
 
 def availableTasks(request):
-    tasks = Task.objects.filter(completed=False)
-    return render(request, 'availableTasks/availableTasks.html', {'tasks': tasks, 'name': request.GET.get('name')})
+    task=Task.objects.filter(completed=False)
+    return render(request,'availableTasks.html',{'task':task})
 
-def available_task_detail(request, task_id):
-    task = get_object_or_404(Task, pk=task_id)
+
+def available_task_detail(request, task_id):  # Add task_id parameter
+    task = get_object_or_404(Task, pk=task_id)  # Filter by primary key (pk)
     return render(request, 'task_detail.html', {'task': task})
 
 @require_POST
