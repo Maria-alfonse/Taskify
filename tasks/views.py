@@ -39,3 +39,26 @@ def delete_task(request, task_id):
         return redirect('showTask')
     return JsonResponse({'success': False, 'error': 'Invalid request method'})
 
+def edit(request, task_id):
+    task = get_object_or_404(Task, id=task_id)
+    if request.method == 'POST':
+        form = TaskForm(request.POST, instance=task)
+        if form.is_valid():
+            form.save()
+            if request.is_ajax():
+                return JsonResponse({'success': True, 'message': 'Task updated successfully!'})
+            messages.success(request, 'Task updated successfully!')
+            return redirect('task_detail', taskid=task_id)
+        else:
+            if request.is_ajax():
+                return JsonResponse({'success': False, 'errors': form.errors})
+            messages.error(request, 'Form validation failed. Please check the input fields.')
+    else:
+        form = TaskForm(instance=task)
+
+    context = {
+        'form': form,
+        'task': task
+    }
+    return render(request, 'Edit.html', context)
+

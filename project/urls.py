@@ -12,4 +12,6 @@ urlpatterns = [
     path('Home/',include('tasks.urls')),
     path('', include('myapp.urls')),
      path('viewlist/',include('viewlist.urls')),
+     path('tasks/', include('tasks.urls')),
+
 ]

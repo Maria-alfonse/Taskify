@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'completed.apps.CompletedConfig',
     'myapp.apps.MyAppConfig', 
     'viewlist',
+    'Edit.apps.EditConfig',
 ]
 
 MIDDLEWARE = [
