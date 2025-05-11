@@ -1,6 +1,15 @@
 ## Project Overview
 Taskify is a Django-based web application designed to streamline task management between administrators and teachers. It allows admins to assign tasks with varying priorities and enables teachers to track and complete their assigned tasks efficiently.
 
+## Usage
+- **Admins:**
+  - Log in to the admin dashboard.
+  - Add, edit, or delete tasks for teachers.
+  - Assign priorities to tasks.
+- **Teachers:**
+  - Log in to view assigned tasks.
+  - Mark tasks as complete once done.
+
 ## Installation
 1. **Clone the repository:**
    ```bash
@@ -23,19 +32,3 @@ Taskify is a Django-based web application designed to streamline task management
   ```bash
     python manage.py runserver
    ```
-
-#### 3. **Usage:**
-Explain how different users can interact with the application.:contentReference[oaicite:24]{index=24}
-
-```markdown
-## Usage
-
-- **Admins:**
-  - Log in to the admin dashboard.
-  - Add, edit, or delete tasks for teachers.
-  - Assign priorities to tasks.
-
-- **Teachers:**
-  - Log in to view assigned tasks.
-  - Mark tasks as complete once done.
-```
