@@ -12,23 +12,24 @@ Taskify is a Django-based web application designed to streamline task management
 
 ## Installation
 1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/Maria-alfonse/Taskify.git
-   cd Taskify
+    ```bash
+    git clone https://github.com/Maria-alfonse/Taskify.git
+    cd Taskify
+    ```
 2. **Create and activate a virtual environment:**
-  ```bash
-  python -m venv venv
-  source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On Windows: venv\Scripts\activate
+    ```
 3. ** Install dependencies:**
-  ```bash
-  pip install -r requirements.txt
-   ```
+    ```bash
+    pip install -r requirements.txt
+    ```
 4. **Apply migrations:**
-  ```bash
-  python manage.py migrate
-   ```
+    ```bash
+    python manage.py migrate
+    ```
 5. **Run the development server:**
-  ```bash
-  python manage.py runserver
-   ```
+    ```bash
+    python manage.py runserver
+    ```
