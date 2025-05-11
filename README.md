@@ -10,16 +10,19 @@ Taskify is a Django-based web application designed to streamline task management
   ```bash
     python -m venv venv
     source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
 3. ** Install dependencies:**
   ```bash
     pip install -r requirements.txt
+   ```
 4. **Apply migrations:**
   ```bash
     python manage.py migrate
+   ```
 5. **Run the development server:**
   ```bash
     python manage.py runserver
-
+   ```
 
 #### 3. **Usage:**
 Explain how different users can interact with the application.:contentReference[oaicite:24]{index=24}
@@ -35,3 +38,4 @@ Explain how different users can interact with the application.:contentReference[
 - **Teachers:**
   - Log in to view assigned tasks.
   - Mark tasks as complete once done.
+```
